@@ -8,12 +8,12 @@ interface ProjectCardProps {
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   return (
-    <div className="bg-primary rounded-lg overflow-hidden group transform transition-all hover:-translate-y-2 hover:shadow-2xl hover:shadow-accent/20">
+    <div className="bg-primary rounded-lg group transform transition-all hover:-translate-y-2 hover:shadow-2xl hover:shadow-accent/20">
       <div className="relative">
         <img
           src={project.imageUrl}
           alt={project.title}
-          className="w-full h-64 object-cover"
+          className="w-full h-64 object-cover rounded-t-lg"
         />
       </div>
       <div className="p-6">

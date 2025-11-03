@@ -52,14 +52,14 @@ const Hero: React.FC = () => {
           <img 
             src="https://picsum.photos/seed/portfolio-person/600/600" 
             alt="Jashwanth" 
-            className="rounded-full shadow-2xl shadow-accent/20 border-4 border-secondary" 
+            className="rounded-full shadow-2xl shadow-accent/20 border-4 border-secondary animate-breathing" 
           />
         </div>
 
         {/* Right Side: Text Content */}
         <div className="md:w-1/2 text-center md:text-left">
           <h1 className="text-4xl md:text-6xl font-black text-light leading-tight mb-4">
-            Hi, I'm <span className="bg-gradient-to-r from-accent to-light text-transparent bg-clip-text">Jashwanth</span>
+            <span className="bg-gradient-to-r from-light to-accent text-transparent bg-clip-text">Hi, I'm</span> <span className="bg-gradient-to-r from-accent to-light text-transparent bg-clip-text">Jashwanth</span>
           </h1>
           <p className="text-lg md:text-xl text-slate-300 min-h-[28px]">
             <span className="font-bold text-light">{text}</span>
@@ -69,7 +69,7 @@ const Hero: React.FC = () => {
             <a href="#contact" className="inline-block bg-accent text-dark font-bold py-3 px-6 rounded-lg transition-all transform hover:bg-dark hover:text-accent hover:scale-105 hover:border hover:border-accent">
               Contact Me
             </a>
-            <div className="flex items-center gap-3 bg-gray-800/50 font-semibold py-2 px-5 rounded-full text-sm border border-secondary">
+            <div className="flex items-center gap-3 bg-gray-800/50 font-semibold py-2 px-5 rounded-full text-sm border border-secondary animate-breathing">
               <span className="relative flex h-2.5 w-2.5">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-accent"></span>

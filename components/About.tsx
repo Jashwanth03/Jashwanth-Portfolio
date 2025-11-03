@@ -37,7 +37,7 @@ const About: React.FC = () => {
           <img 
             src="https://picsum.photos/seed/portfolio-person-about/600/600" 
             alt="Jashwanth" 
-            className="rounded-lg shadow-2xl shadow-accent/20 w-full"
+            className="rounded-lg shadow-2xl shadow-accent/20 w-full animate-breathing"
           />
         </div>
 
