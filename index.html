@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF--8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fusion Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'primary': '#181818', // Lighter black for cards
+              'secondary': '#282828', // Medium gray for secondary elements
+              'accent': '#1DB954', // Spotify Green
+              'light': '#ffffff',
+              'dark': '#121212' // Spotify Black background
+            },
+            fontFamily: {
+              sans: ['Montserrat', 'sans-serif'],
+            },
+            animation: {
+              'typing-blink': 'blink 0.75s step-end infinite',
+            },
+            keyframes: {
+              blink: {
+                'from, to': { 'border-color': 'transparent' },
+                '50%': { 'border-color': 'white' },
+              }
+            }
+          },
+        },
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/"
+  }
+}
+</script>
+</head>
+  <body class="bg-dark text-slate-300 font-sans">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
