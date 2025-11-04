@@ -6,7 +6,11 @@ import { type Hobby } from '../types';
 const HobbyCard: React.FC<{ hobby: Hobby }> = ({ hobby }) => (
   <div className={`bg-primary p-4 sm:p-6 rounded-lg border border-secondary text-center flex flex-col items-center transition-all duration-300 transform hover:-translate-y-2 h-full ${hobby.theme.border} ${hobby.theme.shadow}`}>
     <div className="w-16 h-16 mb-4 flex items-center justify-center">
-      {hobby.icon}
+      {<img 
+            src={hobby.icon} 
+            alt="hobby icons" 
+            className="" 
+          />}
     </div>
     <h3 className="text-xl font-bold text-light mb-2">{hobby.title}</h3>
     <p className="text-slate-400 text-sm leading-relaxed">{hobby.description}</p>

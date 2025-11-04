@@ -8,7 +8,7 @@ export interface SkillPillColors {
 
 export interface SkillCardData {
     title: string;
-    icon: ReactNode;
+    icon: string;
     skills: string[];
     pillColors: SkillPillColors;
     cardTheme: {
@@ -43,7 +43,7 @@ export interface Project {
 }
 
 export interface Hobby {
-  icon: ReactNode;
+  icon: string;
   title: string;
   description: string;
   theme: {

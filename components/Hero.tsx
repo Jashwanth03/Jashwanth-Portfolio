@@ -50,9 +50,9 @@ const Hero: React.FC = () => {
         {/* Left Side: Image (comes first in flex-row) */}
         <div className="w-3/4 sm:w-1/2 md:w-5/12 lg:w-1/3 order-1 md:order-none">
           <img 
-            src="https://picsum.photos/seed/portfolio-person/600/600" 
+            src="/assets/hero.png" 
             alt="Jashwanth" 
-            className="rounded-full shadow-2xl shadow-accent/20 border-4 border-secondary animate-breathing" 
+            className="rounded-full w-52 h-74  mx-auto border-4 shadow-2xl shadow-accent/20 border-4 border-secondary animate-breathing object-cover" 
           />
         </div>
 
