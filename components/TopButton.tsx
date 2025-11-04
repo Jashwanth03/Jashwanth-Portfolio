@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const GoToTopButton: React.FC = () => {
+const TopButton: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   const toggleVisibility = () => {
@@ -51,4 +51,4 @@ const GoToTopButton: React.FC = () => {
   );
 };
 
-export default GoToTopButton;
+export default TopButton;

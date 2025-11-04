@@ -9,7 +9,7 @@ import Projects from './components/Projects';
 import Hobbies from './components/Hobbies';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import GoToTopButton from './components/GotoTopButton';
+import TopButton from './components/TopButton';
 
 const App: React.FC = () => {
   return (
@@ -25,7 +25,7 @@ const App: React.FC = () => {
         <Contact />
       </main>
       <Footer />
-      <GoToTopButton />
+      <TopButton />
     </div>
   );
 };
