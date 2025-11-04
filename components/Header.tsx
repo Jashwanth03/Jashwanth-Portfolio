@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const navLinks = [
   { name: 'Home', href: '#home' },
@@ -6,11 +6,45 @@ const navLinks = [
   { name: 'Skills', href: '#skills' },
   { name: 'Qualifications', href: '#qualifications' },
   { name: 'Projects', href: '#projects' },
+  { name: 'Hobbies', href: '#hobbies' },
   { name: 'Contact', href: '#contact' },
 ];
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
+
+  useEffect(() => {
+    const handleScroll = () => {
+      let currentSection = '';
+      for (let i = navLinks.length - 1; i >= 0; i--) {
+        const sectionId = navLinks[i].href.slice(1);
+        const section = document.getElementById(sectionId);
+        if (section) {
+          const rect = section.getBoundingClientRect();
+          // 150px offset from the top to ensure the section is well in view
+          if (rect.top <= 150) {
+            currentSection = sectionId;
+            break;
+          }
+        }
+      }
+       // If no section is found and we are at the top, default to home
+      if (currentSection === '' && window.scrollY < window.innerHeight / 2) {
+          currentSection = 'home';
+      }
+
+      setActiveSection(currentSection);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Initial check on mount
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
 
   const handleLinkClick = (
     event: React.MouseEvent<HTMLAnchorElement>,
@@ -41,13 +75,17 @@ const Header: React.FC = () => {
         </a>
         
         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-x-10">
+        <div className="hidden md:flex items-center gap-x-8">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
               onClick={(e) => handleLinkClick(e, link.href)}
-              className="text-accent hover:text-light transition-colors font-medium uppercase tracking-wider text-sm"
+              className={`transition-colors font-medium uppercase tracking-wider text-sm ${
+                activeSection === link.href.slice(1) 
+                ? 'text-light' 
+                : 'text-accent hover:text-light'
+              }`}
             >
               {link.name}
             </a>
@@ -77,7 +115,11 @@ const Header: React.FC = () => {
                 key={link.name}
                 href={link.href}
                 onClick={(e) => handleLinkClick(e, link.href)}
-                className="text-accent hover:text-light block px-3 py-2 rounded-md text-base font-medium uppercase tracking-wider"
+                className={`block px-3 py-2 rounded-md text-base font-medium uppercase tracking-wider ${
+                  activeSection === link.href.slice(1)
+                  ? 'text-light bg-accent/20'
+                  : 'text-accent hover:text-light'
+                }`}
               >
                 {link.name}
               </a>

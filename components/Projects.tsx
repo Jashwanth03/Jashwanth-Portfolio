@@ -25,15 +25,15 @@ const Projects: React.FC = () => {
         {/* Previous Button */}
         <button
           onClick={handlePrev}
-          className="absolute left-0 -translate-x-1/2 md:-translate-x-full top-1/2 -translate-y-1/2 bg-primary p-3 rounded-full shadow-lg hover:bg-accent hover:text-dark text-accent transition-colors z-10"
+          className="absolute left-4 md:left-0 top-1/2 z-10 -translate-y-1/2 transform rounded-full bg-primary p-2 md:p-3 text-accent shadow-lg transition-colors hover:bg-accent hover:text-dark md:-translate-x-12"
           aria-label="Previous project"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 md:h-8 md:w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M15.75 19.5L8.25 12l7.5-7.5" />
           </svg>
         </button>
 
-        <div className="w-full max-w-lg mx-auto">
+        <div className="w-full max-w-sm sm:max-w-md lg:max-w-lg mx-auto">
           {/* The key on the div will force a re-render and trigger animations if any */}
           <div key={currentIndex}>
             <ProjectCard project={PROJECTS_DATA[currentIndex]} />
@@ -44,10 +44,10 @@ const Projects: React.FC = () => {
         {/* Next Button */}
         <button
           onClick={handleNext}
-          className="absolute right-0 translate-x-1/2 md:translate-x-full top-1/2 -translate-y-1/2 bg-primary p-3 rounded-full shadow-lg hover:bg-accent hover:text-dark text-accent transition-colors z-10"
+          className="absolute right-4 md:right-0 top-1/2 z-10 -translate-y-1/2 transform rounded-full bg-primary p-2 md:p-3 text-accent shadow-lg transition-colors hover:bg-accent hover:text-dark md:translate-x-12"
           aria-label="Next project"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 md:h-8 md:w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
           </svg>
         </button>

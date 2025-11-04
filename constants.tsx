@@ -1,87 +1,61 @@
 import React from 'react';
-import { type Skill, type SkillCategory, ExperienceType, type ExperienceItem, type Project } from './types';
+import { ExperienceType, type ExperienceItem, type Project, type SkillCardData, type Hobby } from './types';
 
-// --- SKILL ICONS (Updated with official & clean SVGs) ---
+// --- NEW SKILL CATEGORY ICONS ---
 
-const HTML5Icon = () => (
-    <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <title>HTML5</title>
-        <path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.565-2.438L1.5 0zm17.09 4.413L5.41 4.41l.213 2.622 10.125.002-.255 2.716h-6.64l.24 2.573h6.182l-.366 3.924-2.91.78-2.91-.78-.188-2.11H6.248l.33 4.17L12 19.35l5.378-1.44.744-8.157H4.59L3.54 0h17.92l-.97 4.413z" fill="#E34F26"/>
+const ProgrammingIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-full h-full text-sky-400">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25" />
     </svg>
 );
 
-const CSS3Icon = () => (
-    <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <title>CSS3</title>
-        <path d="m1.5.002 1.9 21.56L12 24.002l8.6-2.44L22.5.002H1.5zM17.1 4.415l-11.7.002.2 2.62h9.2l-.2 2.717H8.3l.2 2.575h6.1l-.4 3.925-2.9.782-2.9-.782-.2-2.11h-2.2l.3 4.172L12 19.352l5.4-1.442.7-8.157H4.6l-.9-4.338h15.2l-.2 2.573z" fill="#1572B6"/>
+const FrontendIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-full h-full text-purple-400">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25A2.25 2.25 0 0 1 5.25 3h13.5A2.25 2.25 0 0 1 21 5.25Z" />
+  </svg>
+);
+
+const BackendDatabaseIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-full h-full text-green-400">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375" />
     </svg>
 );
 
-const JSIcon = () => (
-    <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <title>JavaScript</title>
-        <path d="M0 0h24v24H0V0z" fill="#F7DF1E"/>
-        <path d="M9.424 16.428c.27.42.66.72 1.17.9.51.18 1.05.27 1.62.27.87 0 1.62-.21 2.25-.63.63-.42.945-1.02.945-1.8s-.315-1.41-.945-1.86c-.63-.45-1.41-.675-2.34-.675h-.72v-1.32h.66c.81 0 1.5-.21 2.07-.63.57-.42.855-.99.855-1.71 0-.69-.24-1.245-.72-1.665-.48-.42-1.11-.63-1.89-.63-.72 0-1.32.21-1.77.63-.45.42-.675.96-.675 1.62H7.294c0-.99.33-1.845.99-2.565.66-.72 1.515-1.08 2.565-1.08 1.02 0 1.89.345 2.61.93.72.675 1.08 1.485 1.08 2.43 0 .78-.21 1.44-.63 1.98-.42.54-.99.9-1.71 1.08v.21c.96.15 1.77.585 2.43 1.305.66.72.99 1.62.99 2.7 0 1.02-.36 1.875-1.08 2.565-.72.69-1.635 1.035-2.745 1.035-1.14 0-2.07-.315-2.79-.945-.72-.63-1.08-1.44-1.08-2.43h2.16c0 .63.195 1.14.585 1.53z" fill="#000"/>
-    </svg>
-);
-
-const ReactIcon = () => (
-    <svg role="img" viewBox="-11.5 -10.23174 23 20.46348" xmlns="http://www.w3.org/2000/svg">
-        <title>React</title>
-        <circle cx="0" cy="0" r="2.05" fill="#61DAFB"/>
-        <g stroke="#61DAFB" strokeWidth="1" fill="none">
-            <ellipse rx="11" ry="4.2"/>
-            <ellipse rx="11" ry="4.2" transform="rotate(60)"/>
-            <ellipse rx="11" ry="4.2" transform="rotate(120)"/>
-        </g>
-    </svg>
-);
-
-const JavaIcon = () => (
-    <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <title>Java</title>
-        <path d="M18.8 6.78c-1.22-2.3-3.14-4.2-5.46-5.4-2.32-1.2-4.9-1.8-7.7-1.8-5.5 0-10.1 1.9-13.8 5.7S-3.76 14.18-3.76 20.08c0 5.4 1.7 10 5.2 13.8s7.9 5.7 13.3 5.7c2.9 0 5.6-.6 8.1-1.8s4.6-2.9 6.2-5.1c-1.3.8-2.8 1.4-4.5 1.8s-3.5.6-5.4.6c-4.1 0-7.7-1.4-10.7-4.1-3-2.8-4.5-6.3-4.5-10.5s1.5-7.7 4.5-10.5c3-2.8 6.6-4.1 10.7-4.1 1.9 0 3.7.3 5.3.9s3.1 1.5 4.4 2.8c-1.8-1.2-3.8-1.8-6.1-1.8-4.8 0-8.8 1.6-12.1 4.7-3.3 3.1-4.9 7.3-4.9 12.4s1.7 9.3 5 12.4c3.3 3.1 7.4 4.7 12.2 4.7.9 0 1.8-.1 2.7-.2s1.7-.3 2.5-.6c3-1.1 5.4-3.1 7.2-6 .3-1.1.5-2.2.5-3.3.01-2.8-.79-5.3-2.29-7.5zm2.5 13.22v-4h-4.9c-.2-1.3-.6-2.6-1.1-3.8.8-.4 1.6-1 2.3-1.7s1.2-1.6 1.4-2.5h2.3v-4H4.24v4h2.4c-.2.9-.6 1.8-1.2 2.5s-1.4 1.3-2.2 1.7c-.6 1.2-1 2.5-1.2 3.8H-1.06v4h4.9c.2 1.3.6 2.6 1.1 3.8-.8.4-1.6 1-2.3 1.7s-1.2 1.6-1.4 2.5H-1.06v4h16.11v-4h-2.4c.2-.9.6-1.8 1.2-2.5s1.4-1.3 2.2-1.7c.6-1.2 1-2.5 1.2-3.8H21.3z" fill="#007396"/>
-        <path d="M12.89 1.45s-1.89-1.58-4.43-1.43c-3.53.21-5.78 3.1-5.78 6.57 0 2.2 1.07 5.31 3.4 6.9-1.28-1.2-1.92-3.46-1.92-5.43 0-2.68 1.43-4.48 3.59-4.83 2-.31 3.55 1.15 3.55 1.15l1.59-3z" fill="#F89820"/>
-    </svg>
-);
-
-const SpringBootIcon = () => (
-    <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <title>Spring</title>
-        <path d="M22.518 9.682c.246-1.996-.28-4.136-1.45-5.83-1.2-1.74-2.9-2.926-4.94-3.48-1.956-.53-4.12-.41-5.95.335-1.9.77-3.49 2.15-4.5 3.91-.97 1.7-.99 3.75-.04 5.48.92 1.67 2.65 2.92 4.6 3.49 1.95.57 4.04.41 5.79-.39 1.6-.72 2.87-2.02 3.6-3.54.34-.7.54-1.46.6-2.24l.01-.15v-.01c0-.02 0-.03.01-.05m-5.18 2.21c-.57.99-1.48 1.74-2.58 2.1-1.12.35-2.34.28-3.4-.2-1.1-.5-1.98-1.4-2.48-2.43-.5-1.01-.58-2.2-.2-3.32.38-1.12 1.2-2.1 2.25-2.68 1.05-.58 2.28-.73 3.48-.42 1.15.3 2.15 1.05 2.76 2.08.63 1.04.8 2.3.45 3.45-.17.58-.45 1.12-.8 1.6.02-.01.03-.02.02-.02z" fill="#6DB33F"/>
-    </svg>
-);
-
-const PostgreSQLIcon = () => (
-    <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <title>PostgreSQL</title>
-        <path d="M12.44.225h-.37c-3.15 0-6.14.53-8.91 1.58-2.77 1.05-5.2 2.6-7.34 4.6-2.13 2-3.8 4.4-4.88 7.15-1.07 2.75-1.63 5.7-1.63 8.85 0 2.85.53 5.6 1.58 8.25 1.05 2.65 2.58 5.05 4.56 7.1 2 2.1 4.35 3.8 7.05 4.9 2.7 1.1 5.6 1.6 8.7 1.6h.15c3.6 0 7.05-.78 10.2-2.36 3.15-1.58 5.9-3.86 8.1-6.75l20.4-20.39 6.6-6.6-20.39-20.4c2.55-3.08 4.35-6.75 5.25-10.95.9-4.12.53-8.4-1.28-12.45S1.64-15.675-1.34-17.925c-3-2.3-6.53-3.9-10.43-4.95-3.9-1.05-8.1-1.43-12.38-1.12zm58.18 82.22L6.14 58.07c-2.92 2.4-6.22 4.2-9.75 5.4-3.52 1.2-7.27 1.8-11.17 1.8h-.15c-2.78 0-5.5-.45-8.1-1.35s-4.95-2.1-7.05-3.6c-2.1-1.5-3.83-3.3-5.18-5.4-1.35-2.1-2.02-4.5-2.02-7.1s.6-5.1 1.72-7.35c1.13-2.25 2.78-4.3 4.8-5.92 2.03-1.65 4.35-2.96 6.9-3.86 2.55-.9 5.32-1.4 8.25-1.4h.3c3.6 0 7.05.6 10.35 1.88s6.07 3.22 8.32 5.77c2.25 2.55 3.9 5.55 4.73 9s.56 6.9-.6 10.2c-1.16 3.3-2.96 6.2-5.4 8.7l20.08 20.1 4.43 4.42-.15.15-2.1 2.1zm-46-26.8c-1.42 0-2.8-.15-4.12-.52-1.32-.38-2.58-.83-3.87-1.32-1.28-.48-2.48-1.08-3.6-1.72-1.12-.65-2.15-1.3-3.08-2s-1.6-1.5-2.18-2.32-1.05-1.78-1.35-2.82c-.3-1.05-.45-2.18-.45-3.3s.15-2.1.45-3.15c.3-1.05.7-2 1.3-2.92s1.3-1.78 2.2-2.58c.9-.8 1.85-1.5 3-2.2s2.38-1.3 3.75-1.8c1.38-.5 2.82-.9 4.32-1.2s3-.45 4.5-.45h.15c2.4 0 4.75.4 7 1.28 2.25.88 4.3 2.02 6.08 3.45 1.78 1.42 3.22 3.1 4.28 5.02s1.65 3.9 1.65 6c0 2.2-.56 4.3-1.68 6.3-1.12 2-2.68 3.7-4.65 5.1-1.97 1.4-4.2 2.5-6.68 3.2-2.48.7-5.18 1.05-8.1 1.05zm-1.05-36.9c-2.25 0-4.42.38-6.52 1.12-2.1.75-4.05 1.8-5.7 3.1-1.65 1.3-3.15 2.9-4.28 4.7-1.12 1.8-1.72 3.8-1.72 5.9s.6 4.3 1.8 6.2c1.2 1.9 2.85 3.6 4.95 4.95 2.1 1.35 4.5 2.4 7.2 3.08s5.55 1.05 8.55 1.05h.38c1.9 0 3.75-.22 5.55-.6s3.45-.9 5.02-1.6c1.58-.7 3-1.6 4.12-2.7s2.08-2.5 2.7-4.1c.62-1.6.9-3.3.9-5.2s-.3-3.8-.9-5.5c-.6-1.7-1.42-3.2-2.25-4.6-.82-1.4-1.9-2.7-3.15-3.8s-2.78-2.1-4.42-2.9c-1.65-.8-3.45-1.4-5.4-1.8-1.95-.4-3.9-.6-6-.6h-.22z" fill="#336791"/>
+const LanguagesIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" className="w-full h-full text-red-400" stroke="currentColor" strokeWidth="1.5" fill="none" viewBox="0 0 24 24" >
+      <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 21l5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 016-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502m9.334-12.138c.896.061 1.785.147 2.666.257m-4.589 8.495a18.023 18.023 0 01-3.827-5.802" />
     </svg>
 );
 
 
-export const SKILLS_DATA: SkillCategory[] = [
+export const SKILLS_DATA: SkillCardData[] = [
     {
-        category: 'Front End',
-        skills: [
-            { name: 'HTML', icon: <HTML5Icon /> },
-            { name: 'CSS', icon: <CSS3Icon /> },
-            { name: 'Javascript', icon: <JSIcon /> },
-            { name: 'React.js', icon: <ReactIcon /> },
-        ]
+        title: 'Programming',
+        icon: <ProgrammingIcon />,
+        skills: ['Java', 'JavaScript'],
+        pillColors: { bg: 'bg-sky-900/50', text: 'text-sky-300', border: 'border-sky-400/20' },
+        cardTheme: { border: 'hover:border-sky-500', shadow: 'hover:shadow-[0_0_20px_rgba(14,165,233,0.3)]' }
     },
     {
-        category: 'Back End',
-        skills: [
-            { name: 'Java', icon: <JavaIcon /> },
-            { name: 'Spring Boot', icon: <SpringBootIcon /> },
-        ]
+        title: 'Front-end',
+        icon: <FrontendIcon />,
+        skills: ['HTML', 'CSS', 'React.js', 'TailwindCSS'],
+        pillColors: { bg: 'bg-purple-900/50', text: 'text-purple-300', border: 'border-purple-400/20' },
+        cardTheme: { border: 'hover:border-purple-500', shadow: 'hover:shadow-[0_0_20px_rgba(168,85,247,0.3)]' }
     },
     {
-        category: 'Database',
-        skills: [
-            { name: 'PostgreSQL', icon: <PostgreSQLIcon /> },
-        ]
+        title: 'Backend & Database',
+        icon: <BackendDatabaseIcon />,
+        skills: ['Spring Boot', 'PostgreSQL', 'MongoDB', 'AppWrite' ],
+        pillColors: { bg: 'bg-green-900/50', text: 'text-green-300', border: 'border-green-400/20' },
+        cardTheme: { border: 'hover:border-green-500', shadow: 'hover:shadow-[0_0_20px_rgba(34,197,94,0.3)]' }
+    },
+    {
+        title: 'Languages',
+        icon: <LanguagesIcon />,
+        skills: ['English', 'Tamil', 'Hindi', 'Telugu'],
+        pillColors: { bg: 'bg-red-900/50', text: 'text-red-300', border: 'border-red-400/20' },
+        cardTheme: { border: 'hover:border-red-500', shadow: 'hover:shadow-[0_0_20px_rgba(244,63,94,0.3)]' }
     }
 ];
 
@@ -89,21 +63,21 @@ export const EDUCATION_DATA: ExperienceItem[] = [
   {
     type: ExperienceType.Education,
     title: "Bachelor's in Computer Science",
-    institution: 'Panimalar Institute of Technology - Chennai',
+    institution: 'Panimalar Institute of Technology | Chennai',
     period: '2021-2025',
     grade: '8.53 CGPA',
   },
   {
     type: ExperienceType.Education,
     title: 'HSC',
-    institution: 'Velammal Vidhyalaya',
+    institution: 'Velammal Vidhyala | Mel Ayanambakkam',
     period: '2020-2021',
     grade: '82%',
   },
   {
     type: ExperienceType.Education,
     title: 'SSLC',
-    institution: 'Velammal Vidhyalaya',
+    institution: 'Velammal Vidhyala | Mel Ayanambakkam',
     period: '2018-2019',
     grade: '84%',
   },
@@ -142,4 +116,58 @@ export const PROJECTS_DATA: Project[] = [
     liveUrl: '#',
     repoUrl: '#',
   },
+];
+
+// --- FONT AWESOME HOBBY ICONS ---
+
+const GamingIcon = () => (
+    <svg viewBox="0 0 640 512" className="h-12 w-12 text-purple-400" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path d="M192 64C86 64 0 150 0 256S86 448 192 448H448c106 0 192-86 192-192S554 64 448 64H192zM160 240c-17.7 0-32 14.3-32 32s14.3 32 32 32h32v32c0 17.7 14.3 32 32 32s32-14.3 32-32V304h32c17.7 0 32-14.3 32-32s-14.3-32-32-32H256v-32c0-17.7-14.3-32-32-32s-32 14.3-32 32v32H160zm224 32a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zm64-96a32 32 0 1 1 0-64 32 32 0 1 1 0 64z"/>
+    </svg>
+);
+
+
+const MusicIcon = () => (
+    <svg viewBox="0 0 496 512" className="h-12 w-12 text-green-400" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path d="M248 8C111.1 8 0 119.1 0 256s111.1 248 248 248 248-111.1 248-248S384.9 8 248 8zM362.3 334.8c-6.8 11.2-22.1 14.8-33.3 8-41.9-25.2-94.2-30.8-158.4-16.9-13.1 2.9-26.1-4.8-29-17.9s4.8-26.1 17.9-29c71.2-15.5 130-9.2 178.2 19.3 12.3 7.3 16.6 23.3 9.3 35.5zM390.4 274.1c-8.4 13.8-27.1 18.2-40.9 9.8-49.3-29.6-123.5-37.6-180.1-20.8-15.5 4.6-31.5-3.8-36.1-19.3s3.8-31.5 19.3-36.1c66-19.3 147.2-10.3 203.4 24 15.2 9.1 19.9 29.3 10.9 44.4zm23.6-64.4c-9.8 16.3-33.7 21.4-50.1 11.6-60.6-36.5-160-45.5-224.2-25.1-18.1 5.8-36.8-4.1-42.6-22.2s4.1-36.8 22.2-42.6c73-23.4 181.4-13.2 252.4 28.5 17.5 10.5 22.9 34.9 12.3 52.4z"/>
+    </svg>
+);
+
+const GameDevIcon = () => (
+    <svg viewBox="0 0 384 512" className="h-12 w-12 text-orange-400" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path d="M192 0C86 0 0 86 0 192V320c0 44.2 35.8 80 80 80h32c0 44.2 35.8 80 80 80s80-35.8 80-80h32c44.2 0 80-35.8 80-80V192C384 86 298 0 192 0zM128 256a32 32 0 1 1 0-64 32 32 0 1 1 0 64zm128 0a32 32 0 1 1 0-64 32 32 0 1 1 0 64z"/>
+    </svg>
+);
+
+const MangaAnimeIcon = () => (
+    <svg viewBox="0 0 640 512" className="h-12 w-12 text-sky-400" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path d="M192 128c0-17.7-14.3-32-32-32s-32 14.3-32 32c0 10.9 5.5 20.7 14.1 26.5L64 224v64h96v-32c0-17.7 14.3-32 32-32s32 14.3 32 32v32h16.2c-2.3-10.4-3.5-21.2-3.8-32.2c-.3-11.4 1.1-22.8 4.3-33.8c3-10.4 7.6-20.2 13.5-29.2c1.6-2.4 3.2-4.7 4.9-7c2.2-2.9 4.4-5.6 6.8-8.2c5-5.3 10.2-10 15.9-14.1c11-7.8 23.2-13.4 36.3-16.5c-1.2-5.3-1.8-10.7-1.8-16.1c0-35.3 28.7-64 64-64s64 28.7 64 64c0 5.5-.7 10.8-1.8 16.1c13.1 3.1 25.3 8.7 36.3 16.5c5.7 4.1 10.9 8.8 15.9 14.1c2.4 2.6 4.6 5.3 6.8 8.2c1.7 2.3 3.3 4.6 4.9 7c5.9 9 10.5 18.8 13.5 29.2c3.2 11 4.6 22.3 4.3 33.8c-.3 11-1.5 21.8-3.8 32.2H544v-32c0-17.7 14.3-32 32-32s32 14.3 32 32v32h96V224L517.9 154.5c8.6-5.8 14.1-15.6 14.1-26.5c0-17.7-14.3-32-32-32s-32 14.3-32 32zm80 288c-17.7 0-32 14.3-32 32v32h-32c-17.7 0-32 14.3-32 32s14.3 32 32 32h96c17.7 0 32-14.3 32-32s-14.3-32-32-32h-32v-32c0-17.7-14.3-32-32-32z"/>
+    </svg>
+);
+
+export const HOBBIES_DATA: Hobby[] = [
+    {
+        icon: <GamingIcon />,
+        title: 'Playing Games',
+        description: "Diving into immersive open worlds, competitive matchmaking, and quirky indie titles. It's my favorite way to unwind and strategize.",
+        theme: { border: 'hover:border-purple-500', shadow: 'hover:shadow-[0_0_20px_rgba(168,85,247,0.3)]' }
+    },
+    {
+        icon: <MusicIcon />,
+        title: 'Listening to Music',
+        description: "Spotify is my constant companion. I'm always exploring new genres, creating playlists for every mood, and finding the perfect soundtrack for coding.",
+        theme: { border: 'hover:border-green-500', shadow: 'hover:shadow-[0_0_20px_rgba(34,197,94,0.3)]' }
+    },
+    {
+        icon: <GameDevIcon />,
+        title: 'Developing Games',
+        description: "Bringing ideas to life with code is my passion. I love the challenge of building game mechanics and creating interactive experiences from scratch.",
+        theme: { border: 'hover:border-orange-500', shadow: 'hover:shadow-[0_0_20px_rgba(249,115,22,0.3)]' }
+    },
+    {
+        icon: <MangaAnimeIcon />,
+        title: 'Manga & Anime',
+        description: "Getting lost in compelling stories and stunning animation. From epic adventures to thought-provoking dramas, I'm always looking for the next great series.",
+        theme: { border: 'hover:border-sky-500', shadow: 'hover:shadow-[0_0_20px_rgba(14,165,233,0.3)]' }
+    }
 ];

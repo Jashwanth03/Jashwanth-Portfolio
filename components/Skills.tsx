@@ -1,36 +1,38 @@
 import React from 'react';
 import Section from './Section';
 import { SKILLS_DATA } from '../constants';
-import { type Skill } from '../types';
+import { type SkillCardData } from '../types';
 
-const SkillCard: React.FC<{ skill: Skill }> = ({ skill }) => (
-  <div className="group flex flex-col items-center justify-center gap-4 p-6 bg-primary border border-secondary rounded-lg transition-all duration-300 hover:border-accent w-40 h-36">
-    <div className="w-12 h-12 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
-      {skill.icon}
+const SkillCategoryCard: React.FC<{ category: SkillCardData }> = ({ category }) => (
+    <div className={`bg-primary p-6 rounded-lg border border-secondary transition-all duration-300 flex flex-col min-h-[260px] sm:min-h-[280px] transform hover:-translate-y-2 ${category.cardTheme.border} ${category.cardTheme.shadow}`}>
+      <div className="flex items-center gap-4 mb-6">
+        <div className="w-10 h-10 flex-shrink-0">
+          {category.icon}
+        </div>
+        <h3 className="text-xl font-bold text-light">{category.title}</h3>
+      </div>
+      <div className="flex flex-col gap-3 mt-auto items-start">
+        {category.skills.map((skill) => (
+          <span 
+            key={skill} 
+            className={`px-3 py-1 rounded-full text-sm font-medium ${category.pillColors.bg} ${category.pillColors.text} border ${category.pillColors.border}`}
+          >
+            {skill}
+          </span>
+        ))}
+      </div>
     </div>
-    <p className="font-semibold text-light text-sm">{skill.name}</p>
-  </div>
 );
 
 
 const Skills: React.FC = () => {
   return (
-    <Section id="skills">
-      <div className="max-w-4xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-light mb-12 uppercase tracking-wider text-center">
-          My Skills
-        </h2>
-        {SKILLS_DATA.map((category) => (
-          <div key={category.category} className="mb-12">
-            <h3 className="text-xl font-bold text-accent mb-6 text-center">{category.category}</h3>
-            <div className="flex flex-wrap justify-center gap-6">
-              {category.skills.map((skill) => (
-                <SkillCard key={skill.name} skill={skill} />
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
+    <Section id="skills" title="My Skills">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
+            {SKILLS_DATA.map((category) => (
+                <SkillCategoryCard key={category.title} category={category} />
+            ))}
+        </div>
     </Section>
   );
 };

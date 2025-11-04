@@ -45,10 +45,10 @@ const Hero: React.FC = () => {
 
   return (
     <section id="home" className="min-h-screen flex items-center bg-dark relative">
-      <div className="container mx-auto px-6 flex flex-col md:flex-row items-center justify-center md:justify-between max-w-5xl">
+      <div className="container mx-auto px-6 flex flex-col md:flex-row items-center justify-center md:justify-between max-w-5xl gap-10">
         
         {/* Left Side: Image (comes first in flex-row) */}
-        <div className="md:w-1/3 order-1 md:order-none mb-10 md:mb-0">
+        <div className="w-3/4 sm:w-1/2 md:w-5/12 lg:w-1/3 order-1 md:order-none">
           <img 
             src="https://picsum.photos/seed/portfolio-person/600/600" 
             alt="Jashwanth" 
@@ -57,8 +57,8 @@ const Hero: React.FC = () => {
         </div>
 
         {/* Right Side: Text Content */}
-        <div className="md:w-1/2 text-center md:text-left">
-          <h1 className="text-4xl md:text-6xl font-black text-light leading-tight mb-4">
+        <div className="w-full md:w-1/2 text-center md:text-left">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-light leading-tight mb-4">
             <span className="bg-gradient-to-r from-light to-accent text-transparent bg-clip-text">Hi, I'm</span> <span className="bg-gradient-to-r from-accent to-light text-transparent bg-clip-text">Jashwanth</span>
           </h1>
           <p className="text-lg md:text-xl text-slate-300 min-h-[28px]">

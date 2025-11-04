@@ -1,15 +1,22 @@
 import type { ReactNode } from 'react';
 
-export interface Skill {
-  name: string;
-  // Fix: Use ReactNode for component types to avoid JSX namespace issues in .ts files.
-  icon: ReactNode;
+export interface SkillPillColors {
+    bg: string;
+    text: string;
+    border: string;
 }
 
-export interface SkillCategory {
-  category: string;
-  skills: Skill[];
+export interface SkillCardData {
+    title: string;
+    icon: ReactNode;
+    skills: string[];
+    pillColors: SkillPillColors;
+    cardTheme: {
+        border: string;
+        shadow: string;
+    };
 }
+
 
 export enum ExperienceType {
   Work = 'Work',
@@ -32,4 +39,14 @@ export interface Project {
   imageUrl: string;
   liveUrl?: string;
   repoUrl?: string;
+}
+
+export interface Hobby {
+  icon: ReactNode;
+  title: string;
+  description: string;
+  theme: {
+    border: string;
+    shadow: string;
+  };
 }

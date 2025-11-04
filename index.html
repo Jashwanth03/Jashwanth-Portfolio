@@ -42,6 +42,27 @@
         },
       }
     </script>
+    <style>
+      /* Custom Scrollbar Styles */
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #121212; /* dark color */
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #1DB954; /* accent color */
+        border-radius: 5px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #1ed760; /* a slightly brighter green */
+      }
+       /* For Firefox */
+      html {
+        scrollbar-width: thin;
+        scrollbar-color: #1DB954 #121212;
+      }
+    </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&display=swap" rel="stylesheet">
