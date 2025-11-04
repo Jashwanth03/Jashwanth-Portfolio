@@ -22,8 +22,8 @@ const About: React.FC = () => {
           </p>
 
           <a 
-            href="/public/Jashwanth_Resume.pdf" 
-            className="inline-flex items-center gap-3 bg-accent text-dark font-bold py-3 px-6 rounded-lg transition-all transform hover:bg-dark hover:text-accent hover:scale-105 hover:border hover:border-accent"
+            href="/Jashwanth_Resume.pdf" 
+           download className="inline-flex items-center gap-3 bg-accent text-dark font-bold py-3 px-6 rounded-lg transition-all transform hover:bg-dark hover:text-accent hover:scale-105 hover:border hover:border-accent"
           >
             Download Resume
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
