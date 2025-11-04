@@ -38,6 +38,7 @@ export interface Project {
   tags: string[];
   imageUrl: string;
   liveUrl?: string;
+  liveUrlText?: string;
   repoUrl?: string;
 }
 

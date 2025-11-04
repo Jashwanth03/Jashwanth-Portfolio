@@ -28,7 +28,8 @@ const Contact: React.FC = () => {
         </a>
       </div>
 
-      <div className="mt-16 flex flex-col md:flex-row justify-center items-center gap-10 md:gap-20">
+      <div className="mt-16 flex justify-center">
+        <div className="flex flex-col items-start gap-10 md:flex-row md:items-center md:gap-20">
           <ContactInfoItem 
             icon={
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -48,6 +49,7 @@ const Contact: React.FC = () => {
             title="Location"
             value="Chennai"
           />
+        </div>
       </div>
     </Section>
   );

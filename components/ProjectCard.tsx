@@ -29,7 +29,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         <div className="flex space-x-4 mt-auto">
           {project.liveUrl && (
             <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="text-light font-semibold hover:text-accent hover:underline transition-colors">
-              Live Demo
+              {project.liveUrlText || 'Live Demo'}
             </a>
           )}
           {project.repoUrl && (

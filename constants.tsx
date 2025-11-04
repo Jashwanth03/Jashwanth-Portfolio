@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { ExperienceType, type ExperienceItem, type Project, type SkillCardData, type Hobby } from './types';
 
@@ -101,20 +102,21 @@ export const WORK_DATA: ExperienceItem[] = [
 
 export const PROJECTS_DATA: Project[] = [
   {
+    title: 'Movie Search App',
+    description: 'A personal project developed with React to display trending movies and implement search functionality. Integrates The Movie DB API for real-time data and uses AppWrite for the database.',
+    tags: ['React', 'JavaScript', 'TailwindCSS', 'AppWrite', 'The Movie DB API'],
+    imageUrl: 'https://images.unsplash.com/photo-1620145648299-f926ac0a9470?q=80&w=400&h=300&fit=crop',
+    liveUrl: 'https://movieflex-app.vercel.app/',
+    repoUrl: 'https://github.com/Jashwanth03/Movieflex-App',
+  },
+  {
     title: 'CrisisConnect: Disaster Management App',
     description: 'A college project building a disaster safety app with React and Node.js for real-time alerts in India. Features weather updates, user signup, SMS alerts via Twilio, and an interactive map with React-Leaflet.',
     tags: ['React', 'Node.js', 'TailwindCSS', 'MongoDB', 'Twilio', 'Ambee API'],
     imageUrl: 'https://picsum.photos/seed/crisisconnect/400/300',
-    liveUrl: '#',
-    repoUrl: '#',
-  },
-  {
-    title: 'Movie Search App',
-    description: 'A personal project developed with React to display trending movies and implement search functionality. Integrates The Movie DB API for real-time data and uses AppWrite for the database.',
-    tags: ['React', 'JavaScript', 'TailwindCSS', 'AppWrite', 'The Movie DB API'],
-    imageUrl: 'https://picsum.photos/seed/moviesearch/400/300',
-    liveUrl: '#',
-    repoUrl: '#',
+    liveUrl: 'https://youtu.be/G9wY4K9uKyw',
+    liveUrlText: 'Watch Video',
+    repoUrl: 'https://github.com/Jashwanth03/CRISISCONNECT-CROWD-SOURCE-DISASTER-MANAGEMENT-APPLICATION-',
   },
 ];
 
