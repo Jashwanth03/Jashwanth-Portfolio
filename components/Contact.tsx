@@ -18,8 +18,11 @@ const Contact: React.FC = () => {
     <Section id="contact" title="Get In Touch">
       <div className="max-w-2xl mx-auto text-center">
         <p className="text-lg text-slate-300 mb-8">
-          I'm currently open to new opportunities and collaborations. If you have a project in mind or just want to say hello, feel free to reach out!
+          I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions. Feel free to reach out!
         </p>
+        <p className="text-2xl md:text-3xl font-black tracking-wide my-8 bg-gradient-to-r from-light to-accent text-transparent bg-clip-text">
+            Let’s build something amazing!
+          </p>
         <a 
           href="mailto:jashwanthem03@gmail.com"
           className="inline-block bg-accent text-dark text-lg font-bold py-4 px-8 rounded-lg transition-all transform hover:bg-dark hover:text-accent hover:scale-105 hover:border hover:border-accent"
