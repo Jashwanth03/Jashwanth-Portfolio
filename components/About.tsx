@@ -9,7 +9,7 @@ const About: React.FC = () => {
         {/* Left Side: Text Content */}
         <div className="md:w-1/2 text-center md:text-left order-2 md:order-1">
           <h2 className="text-3xl sm:text-4xl font-bold text-light mb-2">
-            About Me
+            About Me <span className="text-accent">.</span>
           </h2>
           <p className="text-accent font-semibold mb-6">Intro</p>
           
