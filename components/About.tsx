@@ -22,7 +22,7 @@ const About: React.FC = () => {
           </p>
 
           <a 
-            href="#" 
+            href="/public/Jashwanth_Resume.pdf" 
             className="inline-flex items-center gap-3 bg-accent text-dark font-bold py-3 px-6 rounded-lg transition-all transform hover:bg-dark hover:text-accent hover:scale-105 hover:border hover:border-accent"
           >
             Download Resume
