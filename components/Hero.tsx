@@ -43,6 +43,18 @@ const Hero: React.FC = () => {
     return () => clearTimeout(typingTimeout);
   }, [charIndex, isDeleting, roleIndex]);
 
+    const handleScrollLinkClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+    const href = event.currentTarget.getAttribute('href');
+    if (href) {
+      const targetId = href.slice(1);
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
+
   return (
     <section id="home" className="min-h-screen flex items-center bg-dark relative">
       <div className="container mx-auto px-6 flex flex-col md:flex-row items-center justify-center md:justify-between max-w-5xl gap-10">
@@ -66,9 +78,13 @@ const Hero: React.FC = () => {
             <span className="border-r-2 border-light animate-typing-blink" aria-hidden="true"></span>
           </p>
           <div className="flex items-center justify-center md:justify-start gap-4 mt-8">
-            <a href="#contact" className="inline-block bg-accent text-dark font-bold py-3 px-6 rounded-lg transition-all transform hover:bg-dark hover:text-accent hover:scale-105 hover:border hover:border-accent">
-              Contact Me
-            </a>
+            <a 
+                href="#contact" 
+                onClick={handleScrollLinkClick}
+                className="inline-block bg-accent text-dark font-bold py-3 px-6 rounded-lg transition-all transform hover:bg-dark hover:text-accent hover:scale-105 hover:border hover:border-accent"
+              >
+                Contact Me
+              </a>
             <div className="flex items-center gap-3 bg-gray-800/50 font-semibold py-2 px-5 rounded-full text-sm border border-secondary animate-breathing">
               <span className="relative flex h-2.5 w-2.5">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
