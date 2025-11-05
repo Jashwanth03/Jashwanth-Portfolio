@@ -62,9 +62,9 @@ const Hero: React.FC = () => {
         {/* Left Side: Image */}
         <div className="w-3/4 sm:w-1/2 md:w-5/12 lg:w-1/3 order-1 md:order-none">
           <img 
-            src="/assets/hero.png" 
+            src="/assets/Coding.gif" 
             alt="Jashwanth" 
-            className="rounded-full w-52 h-74 mx-auto border-4 shadow-2xl shadow-accent/20 border-4 border-secondary animate-breathing object-cover" 
+            className="" 
           />
         </div>
 

@@ -35,9 +35,9 @@ const About: React.FC = () => {
         {/* Right Side: Image */}
         <div className="md:w-1/2 order-1 md:order-2">
           <img 
-            src="/assets/aboutme.png"
+            src="/assets/aboutme.gif"
             alt="Jashwanth" 
-            className="rounded-lg shadow-2xl shadow-accent/20 w-full animate-breathing"
+            className=""
           />
         </div>
 
