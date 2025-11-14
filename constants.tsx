@@ -96,7 +96,7 @@ export const PROJECTS_DATA: Project[] = [
   {
     title: 'To-Do React App',
     description: 'Built a clean and responsive To‑Do List web app using React JS and Tailwind CSS, featuring dynamic task management with add, complete, and delete actions. Implemented real‑time UI updates and browser‑based data persistence using local storage.',
-    tags: ['React', 'JavaScript', 'TailwindCSS', 'AppWrite', 'The Movie DB API'],
+    tags: ['React', 'JavaScript', 'TailwindCSS', 'Browser Local Storage'],
     imageUrl: '/assets/todo.png',
     liveUrl: 'https://to-do-app-three-zeta-69.vercel.app/',
     repoUrl: 'https://github.com/Jashwanth03/To-Do-App',
